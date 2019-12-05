@@ -1,13 +1,36 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
+
+function MenuComp(arr) {
+  const menu = document.createElement("div");
+  const list = document.createElement("ul");
+  const btn = document.querySelector(".menu-button");
+  menu.classList.add("menu");
+  menu.appendChild(list);
+
+  arr.forEach(ele => {
+    const newLi = document.createElement("li");
+    newLi.textContent = ele;
+    list.appendChild(newLi);
+  });
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("menu--open");
+    console.log("clicked");
+  });
+
+  return menu;
+}
+const header = document.querySelector(".header");
+header.appendChild(MenuComp(menuItems));
 
 /* 
 
